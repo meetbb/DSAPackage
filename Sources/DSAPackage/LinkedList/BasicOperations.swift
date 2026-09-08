@@ -96,4 +96,15 @@ final class LinkedList<T: Equatable> {
         }        
         return false
     }
+    
+    // MARK: Traverse/Search
+    func traverse() -> [T] {
+        var results: [T] = []
+        var current = head
+        while let node = current {
+            results.append(node.value)
+            current = node.next
+        }
+        return results
+    }
 }
