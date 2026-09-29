@@ -12,16 +12,18 @@ import Foundation
 /// Note: A leaf is a node with no children.
 /// For example: Input: root = [3,9,20,null,null,15,7] then Output: 2
 
-func minDepth(_ root: TreeNode<Int>?) -> Int {
-    guard let root = root else { return 0 }
-    
-    if root.left == nil {
-        return 1 + minDepth(root.right)
+enum LeetCode111 {
+    static func minDepth(_ root: TreeNode<Int>?) -> Int {
+        guard let root = root else { return 0 }
+
+        if root.left == nil {
+            return 1 + minDepth(root.right)
+        }
+
+        if root.right == nil {
+            return 1 + minDepth(root.left)
+        }
+
+        return 1 + min(minDepth(root.left), minDepth(root.right))
     }
-    
-    if root.right == nil {
-        return 1 + minDepth(root.left)
-    }
-    
-    return 1 + min(minDepth(root.left), minDepth(root.right))
 }

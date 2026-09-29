@@ -12,22 +12,24 @@ import Foundation
 ///     Output: true
 ///     1,2, 3
 
-func isBalanced(_ root: TreeNode<Int>?) -> Bool {
-    return checkHeight(root) != -1
-}
-
-func checkHeight(_ node: TreeNode<Int>?) -> Int {
-    guard let node = node else { return 0 }
-    
-    let leftHeight = checkHeight(node.left)
-    if leftHeight == -1 { return -1 }
-    
-    let rightHeight = checkHeight(node.right)
-    if rightHeight == -1 { return -1 }
-    
-    if abs(leftHeight - rightHeight) > 1 {
-        return -1
+enum LeetCode110 {
+    static func isBalanced(_ root: TreeNode<Int>?) -> Bool {
+        return checkHeight(root) != -1
     }
-    
-    return 1 + max(leftHeight, rightHeight)
+
+    static func checkHeight(_ node: TreeNode<Int>?) -> Int {
+        guard let node = node else { return 0 }
+
+        let leftHeight = checkHeight(node.left)
+        if leftHeight == -1 { return -1 }
+
+        let rightHeight = checkHeight(node.right)
+        if rightHeight == -1 { return -1 }
+
+        if abs(leftHeight - rightHeight) > 1 {
+            return -1
+        }
+
+        return 1 + max(leftHeight, rightHeight)
+    }
 }

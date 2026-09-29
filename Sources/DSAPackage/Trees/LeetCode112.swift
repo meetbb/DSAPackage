@@ -13,14 +13,16 @@ import Foundation
 ///     Output: true
 ///         Explanation: The root-to-leaf path with the target sum is shown.
 
-func hasPathSum(_ root: TreeNode<Int>?, _ targetSum: Int) -> Bool {
-    guard let root = root else { return false }
-    
-    let remaining = targetSum - root.value
-    
-    if root.left == nil && root.right == nil {
-        return remaining == 0
+enum LeetCode112 {
+    static func hasPathSum(_ root: TreeNode<Int>?, _ targetSum: Int) -> Bool {
+        guard let root = root else { return false }
+
+        let remaining = targetSum - root.value
+
+        if root.left == nil && root.right == nil {
+            return remaining == 0
+        }
+
+        return hasPathSum(root.left, remaining) || hasPathSum(root.right, remaining)
     }
-    
-    return hasPathSum(root.left, remaining) || hasPathSum(root.right, remaining)
 }
