@@ -1,4 +1,4 @@
-# ``System Design``
+# System Design
 
 Here we are going to cover some important concepts of System Designing.
 
@@ -8,6 +8,6 @@ The documentation will be organized according to concepts and examples of real-t
 
 ## Topics
 
-### <!--@START_MENU_TOKEN@-->Group<!--@END_MENU_TOKEN@-->
+### Books
 
-- <!--@START_MENU_TOKEN@-->``Symbol``<!--@END_MENU_TOKEN@-->
+- <doc:DesigningDataIntensiveApps>
