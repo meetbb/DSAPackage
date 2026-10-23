@@ -172,3 +172,7 @@ Most of a system's cost is not building it, it is **maintaining** it: fixing bug
 | **Evolvability** | Make it easy to change later. | Requirements always change: new use cases, new platforms, new legal rules. Simple systems and good abstractions are easier to modify. Agile practices such as automated tests and refactoring help. Also called *extensibility* or *plasticity*. |
 
 **Interview one-liner:** "Maintainability is making the system easy to run, easy to understand, and easy to change, because that is where most of the cost lives."
+
+---
+## Related Chapter Notes
+- Chapter 2: <doc:DataModelsAndQueryLanguages>
