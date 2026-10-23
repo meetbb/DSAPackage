@@ -28,6 +28,69 @@ Each part has its individual core concepts which are really essential to get a d
 - Stream Processing
 - The Future of Data Systems
 
+## Concept Tree
+
+Read this top to bottom every day. Say each branch out loud: what it is, why it exists, then the example.
+
+```text
+DATA-INTENSIVE APPLICATIONS (problem: data is big, complex, fast-changing, not CPU-bound)
+│
+├── PART I: FOUNDATIONS OF DATA SYSTEMS (building blocks of any data system)
+│   │
+│   ├── Ch 1: Reliable, Scalable, Maintainable
+│   │   │
+│   │   ├── RELIABILITY: keeps working when things break
+│   │   │   ├── Fault (one part) vs Failure (whole system) → goal: fault tolerance
+│   │   │   ├── Hardware faults → redundancy (independent, so copies help)
+│   │   │   ├── Software faults → testing, isolation, restart (correlated, copies don't help)
+│   │   │   └── Human errors → good interfaces, sandboxes, fast rollback (Chaos Monkey)
+│   │   │
+│   │   ├── SCALABILITY: keeps working when it grows
+│   │   │   ├── 1. Describe LOAD → load parameters
+│   │   │   │   └── Twitter timeline: fan-out on read vs on write → hybrid for celebrities
+│   │   │   ├── 2. Describe PERFORMANCE
+│   │   │   │   ├── Throughput (batch) vs Response time (online)
+│   │   │   │   │   └── Response time = waiting (latency) + processing + network
+│   │   │   │   ├── Use percentiles, not the average
+│   │   │   │   │   ├── p50 = typical user
+│   │   │   │   │   └── p95 / p99 / p999 = the slow tail (zoom into slow end)
+│   │   │   │   ├── Why the tail matters
+│   │   │   │   │   ├── Best customers are often the slowest (Amazon)
+│   │   │   │   │   ├── Head-of-line blocking: slow requests hold up fast ones behind
+│   │   │   │   │   └── Tail latency amplification: 1% slow x 100 calls = 63% slow pages
+│   │   │   │   ├── Targets: SLO (internal goal) vs SLA (contract with consequences)
+│   │   │   │   └── Monitoring: rolling window → approximate (t-digest) → add histograms,
+│   │   │   │       never average percentiles
+│   │   │   └── 3. COPING with load
+│   │   │       ├── Scale up (bigger machine) vs scale out (more machines), usually a mix
+│   │   │       ├── Elastic (auto) vs manual scaling
+│   │   │       ├── Stateless is easy to spread, stateful is hard
+│   │   │       └── No magic scaling sauce: design around your load parameters
+│   │   │
+│   │   └── MAINTAINABILITY: people can keep working on it for years
+│   │       ├── Operability → easy to run
+│   │       ├── Simplicity → easy to understand (remove accidental complexity, use abstraction)
+│   │       └── Evolvability → easy to change
+│   │
+│   ├── Ch 2: Data Models and Query Languages
+│   ├── Ch 3: Storage and Retrieval
+│   └── Ch 4: Encoding and Evolution
+│
+├── PART II: DISTRIBUTED DATA (data spread over many machines)
+│   ├── Ch 5: Replication
+│   ├── Ch 6: Partitioning
+│   ├── Ch 7: Transactions
+│   ├── Ch 8: The Trouble with Distributed Systems
+│   └── Ch 9: Consistency and Consensus
+│
+└── PART III: DERIVED DATA (data computed from other data)
+    ├── Ch 10: Batch Processing
+    ├── Ch 11: Stream Processing
+    └── Ch 12: The Future of Data Systems
+```
+
+Chapters not yet studied are left as single lines. Grow the tree one branch at a time as you learn them.
+
 ## Topics
 
 ### The Three Parts
