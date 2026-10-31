@@ -176,3 +176,4 @@ Most of a system's cost is not building it, it is **maintaining** it: fixing bug
 ---
 ## Related Chapter Notes
 - Chapter 2: <doc:DataModelsAndQueryLanguages>
+- Chapter 3: <doc:StorageAndRetrieval>
